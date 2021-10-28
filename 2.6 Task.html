@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 2. Задание №6</title>
+</head>
+<body>
+    <script>
+        "use strict";
+         let amount = +prompt("Введите сумму:");
+        
+         // Вариант 1 - switch
+         function decline(amount) {
+            let result = "рублей";  // если не попадет под условие ниже, то оставляем "рублей"
+            let last_num = null;
+            amount = amount - parseInt(amount / 100) * 100
+            last_num = amount >= 21 ? (amount - parseInt(amount/10) * 10): amount;
+            switch(last_num) {
+                case 1:
+                    return "рубль";
+                case 2:
+                case 3:
+                case 4:
+                    return "рубля";
+            }
+            return result;
+         }
+
+         // Вариант 2 - тернарные операторы
+         function decline_two(amount) {
+            let result = "рублей";
+            let numCase = 0;
+            let last_num = null; 
+            amount = amount - parseInt(amount / 100) * 100;
+            last_num = amount >= 21 ? (amount - parseInt(amount/10) * 10): amount;
+            result = (last_num == 1)? "рубль": result;
+            result = (last_num >= 2 && last_num <= 4)? "рубля": result;
+            return result;
+         }
+
+         // Проверка результатов:
+         alert(`Вариант 1: Ваша сумма в ${amount} ${decline(amount)} успешно зачислена`)
+         alert(`Вариант 2: Ваша сумма в ${amount} ${decline(amount)} успешно зачислена`)
+         
+         /* Проверка:
+         Ваша сумма в 1 рубль успешно зачислена
+         Ваша сумма в 101 рубль успешно зачислена
+         Ваша сумма в 111 рублей успешно зачислена
+         Ваша сумма в 1011 рублей успешно зачислена
+         Ваша сумма в 12 рублей успешно зачислена
+         Ваша сумма в 31 рубль успешно зачислена
+         Ваша сумма в 0 рублей успешно зачислена
+         Ваша сумма в 93 рубля успешно зачислена
+         Ваша сумма в 1095 рублей успешно зачислена
+         */
+
+    </script> 
+</body>
+</html>

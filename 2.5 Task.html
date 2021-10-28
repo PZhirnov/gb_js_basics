@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 2. Задание №5</title>
+</head>
+<body>
+    <script>
+/*
+Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от
+переданного значения операции (использовать switch) выполнить одну из арифметических 
+операций (использовать функции из задания 4) и вернуть полученное значение
+*/
+
+        "use strict";
+
+        // Функции из 4 задания:
+
+        // сложение
+        function sum(a, b) {
+            return a + b;
+        }
+
+
+        // вычитание
+        function sub(a, b) {
+            return a - b;
+        }
+
+
+        // умножение
+        function mul(a, b) {
+            return a * b;
+        }
+
+
+        // деление
+        function div(a, b) {
+            return a / b;
+        }
+
+
+    // Функция по условию 5 задачи
+        function mathOperation(arg1, arg2, operation) {
+            let result = 0; 
+            switch (operation) {
+                case "+":
+                    result = sum(arg1, arg2);
+                    break;
+                case "-":
+                    result = sub(arg1, arg2);
+                    break;                
+                case "*":
+                    result = mul(arg1, arg2);
+                    break;
+                case "/":
+                    result = div(arg1, arg2);
+                    break;
+            }
+        return result;
+        }
+        
+        // Проверка результатов
+        alert(mathOperation(10, 15, "+")); // 25
+        alert(mathOperation(25, 15, "-")); // 10
+        alert(mathOperation(10, 15, "*")); // 150
+        alert(mathOperation(150, 15, "/")); // 10
+    </script>
+</body>
+</html>
