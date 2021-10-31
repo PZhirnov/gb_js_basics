@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 3. Задание №5</title>
+</head>
+<body>
+    <script>
+        // Рассмотрено 4 варианта решения. 
+
+        // Вариант 1 - в шаг встраиваем функцию, которая выводит i в консоль и возвращает назад 1
+        console.log('*** Вариант 1 ***');
+
+        function iplus(i){
+            console.log(i);
+            return 1 
+        };
+
+        for (let i = 0; i <= 10; i += iplus(i)){
+            /* тут пусто*/   
+        }
+
+        // Вариант 2 - условие выносим во внешнюю функцию 
+        console.log('*** Вариант 2 ***');
+
+        function myCondition(i) {
+            console.log(i);
+            return i < 10 ? true: false; // в данном случае сработает как при i <= 10
+        }
+
+        for (let i = 0; myCondition(i); i++){
+            /* тут пусто*/   
+        }
+
+        // Вариант 3 - исключаем шаг и начальное значение полностью, а условие с выводом в консоль выносим во внешнюю функцию
+        console.log('*** Вариант 3 ***');
+
+        let j = -1;
+        function jCondition(){
+            j = j + 1;
+            console.log(j);
+            return j < 10 ? true: false;  
+        }
+
+        for (; jCondition();){
+            /* тут пусто*/  
+        }
+
+        // Вариант 4 - условие вынесено в функцию, а в for возвращается true или false
+        console.log('*** Вариант 4 ***');
+        let i = -1;
+        function iCondition(){
+            i = i + 1;
+            console.log(i);
+            return i < 10 ? true: false;  
+        }
+        for (let x = true ; x == true; x = iCondition()){
+            /* тут пусто*/  
+        }
+    </script>
+</body>
+</html>
