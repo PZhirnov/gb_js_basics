@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 3. Задание №4</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        const products = [
+           {
+               id: 3,
+               price: 127,
+               photos: [
+                   "1.jpg",
+                   "2.jpg",
+               ]
+           } ,
+           {
+               id: 5,
+               price: 499,
+               photos: []
+           } ,
+           {
+               id: 10,
+               price: 26,
+               photos: [
+                   "3.jpg"
+               ]
+           } ,
+           {
+               id: 8,
+               price: 78,
+           } ,
+        ]
+    
+    // *** Решение:
+    // ------ 1. Получить все товары, у которых есть фотографии - filter
+
+    // Оставил вот такой вариант - самый лаконичный:
+    let withPhotos = products.filter((product) => {
+        return product["photos"] != undefined ? product["photos"].length > 0: false;
+    });
+    // Выводим результат в консоль
+    console.log(withPhotos);
+   
+    // ----- 2. Отсортируйте товары по цене (от низкой цены к высокой) - sort
+    
+    /* Сортировка будет сделана для исходного массива - т.е. products.
+    Если нужно сделать новый массив, то можно присвоить новой переменной products.slice(0); */
+    
+    products.sort((productOne, productTwo) => {
+        if (productOne["price"] > productTwo["price"]) {
+            return 1;
+        } else if (productOne["price"] < productTwo["price"]){
+            return -1;
+        } else {
+            return 0;
+        }
+    });  
+    // Выводим результат в консоль:
+    console.log(products);
+
+
+//  Результат проверки:
+             /* Результат к п.1.
+                0:
+                    id: 3
+                    photos: Array(2)
+                        0: "1.jpg"
+                        1: "2.jpg"
+                        length: 2
+                        [[Prototype]]: Array(0)
+                    price: 127
+                    [[Prototype]]: Object
+                1:
+                    id: 10
+                    photos: Array(1)
+                        0: "3.jpg"
+                        length: 1
+                        [[Prototype]]: Array(0)
+                    price: 26
+                    [[Prototype]]: Object
+                length: 2
+            */
+
+            /* Результаты к п.2
+            Результат вывода:
+            0: {id: 10, price: 26, photos: Array(1)}
+            1: {id: 8, price: 78}
+            2: {id: 3, price: 127, photos: Array(2)}
+            3: {id: 5, price: 499, photos: Array(0)}
+            */
+    </script>   
+</body>
+</html>
