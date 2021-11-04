@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 4. Задание 1.1</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        // ---- Вариант в стиле es5 ----
+        function ProductEs5(name, price) {
+            this.name = name;
+            this.price = price;
+        } 
+        ProductEs5.prototype.make25PercentDiscount = function() {
+            this.price *= (1-0.25);
+        };
+
+        // Проверяем работу конструктора в стиле es5
+        const product1 = new ProductEs5('Samsung A52', 25000); 
+        console.log(`Цена ${product1.name} без скидки: ${product1.price}`);
+        product1.make25PercentDiscount();
+        console.log(`Цена ${product1.name} со скидкой: ${product1.price}`);
+
+
+        // ---- Вариант  в стиле es6 ----
+        class ProductEs6 {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+
+            make25PercentDiscount() {
+                this.price *= (1-0.25);
+            }
+
+        }
+        // Проверяем работу конструктора в стиле es6
+        const product2 = new ProductEs6('Samsung A52', 25000);
+        console.log(`Цена ${product2.name} без скидки: ${product2.price}`);
+        product2.make25PercentDiscount();
+        console.log(`Цена ${product2.name} со скидкой: ${product2.price}`);
+    </script>
+    
+</body>
+</html>
