@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок 4. Задание №1</title>
+</head>
+<body>
+    <script>
+        /**
+         * Функция возвращает объект с разрядами числа.
+         * @param {int} num - число для обработки
+         * @returns {Object} - результат.
+         */
+        function digitСapacity (num) {
+            if (num > 0 && num <= 999 && Number.isSafeInteger(num)) {
+                return {
+                   units: num % 10,
+                   tens: parseInt(num % 100 / 10),
+                   hundreds: parseInt(num / 100), 
+                };
+            } else {
+                alert('Введено число вне диапазона от 0 до 999!');
+                return undefined;
+            }
+        }
+
+        // Проверка работоспособности:
+        let myNum = null;
+        let resObj = {};
+        while (true) {
+            myNum = +prompt("Введите число от 0 до 999:");
+            if (isNaN(myNum)) {
+                console.log('Работа приложения завершена пользователем!');
+                break;
+            } else {
+                resObj = digitСapacity(myNum);
+                console.log(resObj);
+            }
+        }
+    </script>   
+</body>
+</html>
