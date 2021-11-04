@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 4. Задание 1.2 Решение в стиле es6</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        // Код в стиле es6
+        // Post
+        class Post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            edit(text) {
+                this.text = text; 
+            }
+        }
+
+        class AttachedPOst extends Post {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+            makeTextHighlighted() {
+                this.highlighted = true; 
+            }
+        }
+                
+        // Проверка результата:
+        const author1 = new AttachedPOst('Л.Н. Толстой', 'Анна К.', 1878);
+        console.log(`Исходный текст: ${author1.highlighted}  ${author1.author} - ${author1.text} (${author1.date})`);
+        author1.edit('Анна Каренина');
+        console.log(`После правки (edit): ${author1.highlighted} ${author1.author} - ${author1.text} (${author1.date})`);
+        author1.makeTextHighlighted();
+        console.log(`После makeTextHighlighted: ${author1.highlighted} ${author1.author} - ${author1.text} (${author1.date})`);
+    </script>
+    
+</body>
+</html>
