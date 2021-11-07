@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 class="one">Заголовок</h3>
+    <a class="one" href="#">ссылка</a>
+    <p class="one">параграф</p>
+
+    <!-- Задание.
+    1. Сохраните в переменную коллекцию элементов с классом one. Для получения
+    элементов используйте метод. getElementsByClassName() 
+    2. С помощью цикла переберите эту коллекцию и выведите в консоль название тега.
+    -->
+
+    <script>
+        "use strict";
+        // Вариант 1
+        let searchTags = document.getElementsByClassName('one');
+        for (let i = 0; i < searchTags.length; i++) {
+            console.log(searchTags[i].tagName);
+        }
+
+        // Еще вариант перебора коллекции
+        console.log('Вариант 2');
+        let j = 0;
+        while (searchTags.item(j)) {
+            console.log(searchTags.item(j++).tagName);
+        }
+
+    </script>
+</body>
+</html>
