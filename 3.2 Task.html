@@ -40,6 +40,13 @@
         console.log(post["comments"][0]["rating"]["dislikes"]); // 2
         console.log(post["comments"][1]["userId"]); // 5
         console.log(post["comments"][1]["text"]); // lorem ipsum 2
+
+        // лучше через точку обращаться
+        console.log(post.author); // John
+        console.log(post.comments[0].rating.dislikes); // 2
+        console.log(post.comments[1].userId); // 5
+        console.log(post.comments[1].text); // lorem ipsum 2
+
     </script> 
 </body>
 </html>

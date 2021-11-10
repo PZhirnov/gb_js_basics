@@ -25,8 +25,9 @@
         ];
         // Применяем скидку ко всем товарам и выводим результаты
         products.forEach((product) => {
-            product["price"] *= (1-0.15); // применили скидку
-            console.log(`id: ${product["id"]} - цена со скидкой: ${product["price"]}`); // выведем в консоль
+            // product["price"] *= (1-0.15); // применили скидку
+            product.price *= (1-0.15); // - лучше елать так
+            console.log(`id: ${product.id} - цена со скидкой: ${product.price}`); // выведем в консоль
         });
     </script>   
 </body>

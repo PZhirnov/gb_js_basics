@@ -41,7 +41,7 @@
 
     // Оставил вот такой вариант - самый лаконичный:
     let withPhotos = products.filter((product) => {
-        return product["photos"] != undefined ? product["photos"].length > 0: false;
+        return product.photos != undefined ? product.photos.length > 0: false;
     });
     // Выводим результат в консоль
     console.log(withPhotos);
@@ -52,9 +52,9 @@
     Если нужно сделать новый массив, то можно присвоить новой переменной products.slice(0); */
     
     products.sort((productOne, productTwo) => {
-        if (productOne["price"] > productTwo["price"]) {
+        if (productOne.price > productTwo.price) {
             return 1;
-        } else if (productOne["price"] < productTwo["price"]){
+        } else if (productOne.price < productTwo.price){
             return -1;
         } else {
             return 0;
